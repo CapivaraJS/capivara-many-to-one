@@ -1,0 +1,24 @@
+dist: trusty
+sudo: required
+addons:
+  sonarcloud:
+    organization: "${sonaruser}"
+    token:
+      secure: "${sonartoken}"
+jdk:
+  - oraclejdk8
+script:
+  - sonar-scanner
+cache:
+  directories:
+    - '$HOME/.sonar/cache'
+language: node_js
+node_js:
+ - "stable"
+before_script: 
+ - npm install
+script:
+ - npm run test-once
+branches:
+  only:
+  - master

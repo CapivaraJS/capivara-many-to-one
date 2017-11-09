@@ -1,0 +1,1 @@
+export { CapivaraManyToOne } from './many-to-one/many-to-one.component'
